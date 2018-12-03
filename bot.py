@@ -42,7 +42,7 @@ async def help():
 
 @client.command()
 async def feet():
-         embed = discord.Embed(title="Take my meme!", color = 0xDA70D6)
+         embed = discord.Embed(title="Oo check this feet!", color = 0xDA70D6)
          embed.set_footer(text="Tip: If the image didnt load try to use this command again! | Developer Nela | Bot version: 1.3")
          embed.set_image(url = random.choice([
              "https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/blogs/315/2009/11/34495-16628.jpg?itok=Ge_x7sNX",
