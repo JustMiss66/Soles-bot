@@ -112,11 +112,14 @@ async def anime_feet(ctx):
     await client.say(embed=embed)
                      
 @client.event()
-async def on_message(message):
+async def on_message_delete(message):
+    author = message.author
+    content = message.content
+    channel = discord.utils.get(client.get_all_channels(), name='chat')
+    embed = discord.Embed(title = "Message Deleted!", color = 0xA52A2A)
+    embed.add_field(name="Who Deleted message:",value="{0}".format(author), inline=False)
+    embed.add_field(name="Message Deleted:",vlaue="{0}".format(content), inline=False)
+    await client.send_message(channel, embed=embed)
     
-    if message.content.startswith("]test command")
-    embed = discord.Embed(title = "Test", color = 0x00FF00)
-    embed.add_field(name = "Test",value="Test2",inline=False)
-    await client.say(embed=embed)
        
 client.run(os.getenv("BOT_TOKEN"))
