@@ -37,8 +37,6 @@ async def restart():
     
         
     await client.logout()
-else:
-    await client.say("You are not my developer!")
 
 @client.command()
 async def help():
