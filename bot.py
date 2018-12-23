@@ -112,9 +112,11 @@ async def anime_feet(ctx):
     await client.say(embed=embed)
                      
 @client.event()
-if message.content.startswith("]test command")
-embed = discord.Embed(title = "Test", color = 0x00FF00)
-embed.add_field(name = "Test",value="Test2",inline=False)
-await client.say(embed=embed)
+asyn def on_message(message):
+    h
+    if message.content.startswith("]test command")
+    embed = discord.Embed(title = "Test", color = 0x00FF00)
+    embed.add_field(name = "Test",value="Test2",inline=False)
+    await client.say(embed=embed)
        
 client.run(os.getenv("BOT_TOKEN"))
