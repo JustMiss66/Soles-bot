@@ -133,6 +133,7 @@ async def on_member_join(user: discord.Member):
     uid = user.id
     tma = user.avatar_url
     embed = discord.Embed(title="Member Joined!", color = 0x00FF0C)
+    embed.add_field(name="Member Profile Picture:",value="Is on right side",inline=False)
     embed.add_field(name = "Member Name:",value="{0}".format(name), inline=False)
     embed.add_field(name = "Member ID:",value = "{0}".format(uid), inline=False)
     embed.add_field(name = "Joined:",value="{0}".format(joined), inline=False)
