@@ -94,7 +94,7 @@ async def cfeet():
     await client.say(embed=embed)
         
 @client.command(pass_context=True)
-async def anime_feet(ctx, user: discord.Member):
+async def anime_feet(ctx):
     embed = discord.Embed(color = 0xFF00FF, title = random.choice([
         "Wow isnt this great?",
         "If you dont like it then idk what happen to you.."]))
