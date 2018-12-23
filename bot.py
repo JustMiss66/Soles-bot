@@ -107,7 +107,7 @@ async def anime_feet(ctx, user: discord.Member):
         "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQl6OthUM2DOK2JvXPGU-fHojvmoBKD21evmetQ3zXh4cIqmcLr",
         "https://i.pinimg.com/originals/10/0a/24/100a24d66a560feeab6b9526ceb0d548.png",
         "https://steamusercontent-a.akamaihd.net/ugc/307738934713973831/383AB085056139AE110C306A1AD56873DE66CCBB/"]))
-    embed.set_thumbnail(url=user.avatar_url)
+    
     embed.set_footer(text = "Requested by {0}".format(ctx.message.author.name))
     await client.say(embed=embed)
                      
