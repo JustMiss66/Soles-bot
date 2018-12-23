@@ -136,4 +136,5 @@ async def on_member_join(member, user: discord.Member):
     embed.add_field(name = "Joined:",value="{0}".format(joined), inline=False)
     embed.set_thumbnail(url=user.avatar_url)
     await client.send_message(channel, embed=embed)
+    
 client.run(os.getenv("BOT_TOKEN"))
