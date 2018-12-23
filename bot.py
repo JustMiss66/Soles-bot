@@ -118,7 +118,7 @@ async def on_message_delete(message):
     channel = discord.utils.get(client.get_all_channels(), name='chat')
     embed = discord.Embed(title = "Message Deleted!", color = 0xA52A2A)
     embed.add_field(name="Who Deleted message:",value="{0}".format(author), inline=False)
-    embed.add_field(name="Message Deleted:",vlaue="{0}".format(content), inline=False)
+    embed.add_field(name="Message Deleted:",value="{0}".format(content), inline=False)
     await client.send_message(channel, embed=embed)
     
        
