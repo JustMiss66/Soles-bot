@@ -113,7 +113,7 @@ async def anime_feet(ctx):
                      
 @client.event()
 asyn def on_message(message):
-    h
+    
     if message.content.startswith("]test command")
     embed = discord.Embed(title = "Test", color = 0x00FF00)
     embed.add_field(name = "Test",value="Test2",inline=False)
