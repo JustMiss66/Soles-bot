@@ -111,7 +111,7 @@ async def anime_feet(ctx):
     embed.set_footer(text = "Requested by {0}".format(ctx.message.author.name))
     await client.say(embed=embed)
                      
-@client.event()
+@client.event
 async def on_message_delete(message):
     author = message.author
     content = message.content
