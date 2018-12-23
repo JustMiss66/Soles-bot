@@ -112,7 +112,7 @@ async def anime_feet(ctx):
     await client.say(embed=embed)
                      
 @client.event()
-asyn def on_message(message):
+async def on_message(message):
     
     if message.content.startswith("]test command")
     embed = discord.Embed(title = "Test", color = 0x00FF00)
