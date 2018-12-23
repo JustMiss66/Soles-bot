@@ -124,7 +124,7 @@ async def on_message_delete(message):
     await client.send_message(channel, embed=embed)
     
 @client.event
-async def on_member_join(member, user: discord.Member):
+async def on_member_join(member):
     name = user.name
     channel = discord.utils.get(client.get_all_channels(), name='chat')
     joined = user.joined_at
