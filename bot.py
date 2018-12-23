@@ -159,7 +159,7 @@ async def play(ctx, *, url):
     try:
         vc = await client.join_voice_channel(voice_channel)
         msg = await client.say("Loading...")
-        player = await vc.create_ytdl_player(url, *, ytdl_options=None, **kwargs)
+        player = await vc.create_ytdl_player(url, ytdl_options=None, **kwargs)
         player.start()
         await client.say("Succesfully Loaded ur song!")
         await client.delete_message(msg)
