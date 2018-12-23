@@ -110,7 +110,7 @@ async def anime_feet(ctx):
     
     embed.set_footer(text = "Requested by {0}".format(ctx.message.author.name))
     await client.say(embed=embed)
-                     
+  #Logs are down ↓            
 @client.event
 async def on_message_delete(message):
     author = message.author
@@ -123,5 +123,17 @@ async def on_message_delete(message):
     embed.add_field(name="In Channel:",value="{0}".format(cannel), inline=False)
     await client.send_message(channel, embed=embed)
     
-       
+@client.event
+async def on_member_join(member, user: discord.Member):
+    name = user.name
+    channel = discord.utils.get(client.get_all_channels(), name='chat')
+    joined = user.joined_at
+    uid = user.id
+    tma = user.avatar_url
+    embed = discord.Embed(title="Member Joined!", color = 0x00FF0C)
+    embed.add_field(name = "Member Name:",value="{0}".format(name), inline=False)
+    embed.add_field(name = "Member ID:",value = "{0}".format(uid), inline=False)
+    embed.add_field(name = "Joined:",value="{0}".format(joined), inline=False)
+    embed.set_thumbnail(url=user.avatar_url)
+    await client.send_message(channel, embed=embed)
 client.run(os.getenv("BOT_TOKEN"))
