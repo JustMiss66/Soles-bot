@@ -30,9 +30,11 @@ async def on_ready():
 async def help():
     embed = discord.Embed(title = "Help commands!", color = 0xBA55D3)
     embed.set_footer(text = "Bot made by Nela say congrats to her please :)")
-    embed.add_field(name = "]feet", value = "Shows an awesome foot!", inline=False)
-    embed.add_field(name = "]toes", value = "Shows some toes ;)",inline=False)
-    embed.add_field(name = "]cfeet", value = "Shows cum on feet pic/gif! (Preparing)",inline=False)
+    embed.add_field(name = "Prefix:", value = "``]``",inline=False)
+    embed.add_field(name = "feet", value = "Shows an awesome foot!", inline=False)
+    embed.add_field(name = "toes", value = "Shows some toes ;)",inline=False)
+    embed.add_field(name = "cfeet", value = "Shows cum on feet pic/gif! (Preparing)",inline=False)
+    embed.add_field(name = "anime_feet", value = "Shows Anime feet :smirk:",inline=False)
     await client.say(embed=embed)
                      
 
@@ -55,9 +57,9 @@ async def feet():
          await client.say(embed=embed)
              
 @client.command()
-async def updates():
+async def update():
     embed = discord.Embed(title = "New Update!", color = 0xFFB6C1)
-    embed.add_field(name = "Added:", value = "**]toes** & **]cfeet!**", inline=True)
+    embed.add_field(name = "Added:", value = "**]anime_feet!**", inline=True)
     embed.add_field(name = "Removed:", value = "**Non**",inline=True)
     embed.set_footer(text="Bot made by: Nela | v1.3")
     await client.say(embed=embed)
@@ -91,4 +93,24 @@ async def cfeet():
         "https://cumfoot.files.wordpress.com/2012/04/foot107.gif"]))
     await client.say(embed=embed)
         
+@client.command(pass_context=True)
+async def anime_feet(ctx):
+    embed = discord.Embed(color = 0xFF00FF, title = random.choice([
+        "Wow isnt this great?",
+        "If you dont like it then idk what happen to you.."]))
+    embed.set_image(url = random.choice([
+        "https://i.pinimg.com/originals/76/59/97/765997fbe30e3c7ffd7f720c79b8b8d2.png",
+        "https://i.pinimg.com/originals/aa/f5/b8/aaf5b8d355383ad8d0116bdd3bcd4d7f.jpg",
+        "https://www.oyunoyna.us/wp-content/uploads/2018/04/einverstandniserklarung-nutzung-fotos-luxus-wykop-newsy-aktualnoac29bci-gry-wiadomoac29bci-muzyka-of-einverstandniserklarung-nutzung-fotos-1.jpg",
+        "https://c.wallhere.com/photos/a8/aa/anime_anime_girls_underwear_legs_feet_short_hair_blue_hair_blue_eyes-1370773.jpg!d",
+        "http://i.imgur.com/pYuJ5.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQl6OthUM2DOK2JvXPGU-fHojvmoBKD21evmetQ3zXh4cIqmcLr",
+        "https://i.pinimg.com/originals/10/0a/24/100a24d66a560feeab6b9526ceb0d548.png",
+        "https://steamusercontent-a.akamaihd.net/ugc/307738934713973831/383AB085056139AE110C306A1AD56873DE66CCBB/"]))
+    embed.set_thumbnail(url=user.avatar_url)
+    embed.set_footer(text = "Requested by {0}".format(ctx.message.author.name))
+    await client.say(embed=embed)
+                     
+                    
+       
 client.run(os.getenv("BOT_TOKEN"))
