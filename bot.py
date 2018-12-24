@@ -132,7 +132,7 @@ async def on_message_delete(message):
     cannel = message.channel
     channel = discord.utils.get(client.get_all_channels(), name='chat')
     embed = discord.Embed(title = "Message Deleted!", color = 0xA52A2A)
-    embed.add_field(name="Who Deleted message:",value="{0}".format(author), inline=False)
+    embed.add_field(name="Message sent by:",value="{0}".format(author), inline=False)
     embed.add_field(name="Message Deleted:",value="{0}".format(content), inline=False)
     embed.add_field(name="In Channel:",value="{0}".format(cannel), inline=False)
     await client.send_message(channel, embed=embed)
@@ -181,5 +181,38 @@ async def stop(ctx):
             return await x.disconnect()
 
     return await client.say("I am not playing anyting???!")
+
+@client.command(pass_context=True)
+async def tweet(ctx, usernamename:str, *, txt:str):
+    url = f"https://nekobot.xyz/api/imagegen?type=tweet&username={usernamename}&text={txt}"
+    async with aiohttp.ClientSession() as cs:
+        async with cs.get(url) as r:
+            res = await r.json()
+            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
+            embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
+            embed.set_image(url=res['message'])
+            embed.title = "{} twitted: {}".format(usernamename, txt)
+            await client.say(embed=embed)
+
+@client.command(pass_context = True)
+async def cat(ctx):
+    await client.delete_message(ctx.message)
+    await client.say('<a:agooglecat:516174312294842389>')
+
+@client.command(pass_context = True)
+@commands.has_permissions(manage_roles=True)
+async def rolecolor(ctx, role:discord.Role=None, value:str=None):
+    if discord.utils.get(ctx.message.server.roles, name="{}".format(role)) is None:
+        await client.say("Use this command like ``] trolecolor (ROLENAME) (ROLECOLOUR IN HEXCODE)``")
+        return
+    if value is None:
+        await client.say("Use this command like ``]rolecolor (ROLENAME) (ROLECOLOUR IN HEXCODE)``")
+        return
+    else:
+        new_val = value.replace("#", "")
+        colour = '0x' + new_val
+        user = ctx.message.author
+        await client.edit_role(ctx.message.server, role, color = discord.Color(int(colour, base=16)))
+        await client.say("{} role colour has been edited.".format(role))
 
 client.run(os.getenv("BOT_TOKEN"))
