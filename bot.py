@@ -13,7 +13,6 @@ from discord import Game, Embed, Color, Status, ChannelType
 import datetime
 import requests
 import json
-import praw
 import aiohttp
 
 
