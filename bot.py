@@ -56,18 +56,15 @@ async def help():
 
 @client.command()
 async def feet():
-         embed = discord.Embed(title="Oo check this feet!", color = 0xDA70D6)
-         embed.set_footer(text="Tip: If the image didnt load try to use this command again! | Developer Nela | Bot version: 1.3")
-         embed.set_image(url = random.choice([
-             "https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/blogs/315/2009/11/34495-16628.jpg?itok=Ge_x7sNX",
-             "https://mfiles.alphacoders.com/431/431663.jpg",
-             "https://i.pinimg.com/originals/c2/d2/fd/c2d2fd938526f05e2eb41a9e6012ad3a.jpg",
-             "https://i.pinimg.com/736x/4d/28/e0/4d28e09859b3ea4f6d19dc6876885540.jpg",
-             "https://i.pinimg.com/originals/32/e3/a8/32e3a84b0ce709c6849c6b62cb9108c3.jpg",
-             "https://i.pinimg.com/originals/5f/be/a3/5fbea3dffe6dfb7e3c9325fdceacb2d1.png",
-             "https://i.pinimg.com/originals/10/ed/c9/10edc98f708736f13ff6352f3dac796c.jpg"]))
-         await client.say(embed=embed)
-             
+    colour = '0x' + '008000'
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://api.reddit.com/r/feet/random") as r:
+            data = await r.json()
+            embed = discord.Embed(title='Take some feets :D', description='from reddit', color=discord.Color(int(colour, base=16)))
+            embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
+            embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.say(embed=embed)
 @client.command()
 async def update():
     embed = discord.Embed(title = "New Update!", color = 0xFFB6C1)
