@@ -57,8 +57,8 @@ async def help():
 
 
 
-@client.command()
-async def feet():
+@client.command(pass_context = True)
+async def feet(ctx):
     colour = '0x' + '008000'
     async with aiohttp.ClientSession() as session:
         async with session.get("https://api.reddit.com/r/feet/random") as r:
@@ -68,6 +68,7 @@ async def feet():
             embed.set_footer(text=f'Requested by: {ctx.message.author.display_name}', icon_url=f'{ctx.message.author.avatar_url}')
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
+
 @client.command()
 async def update():
     embed = discord.Embed(title = "New Update!", color = 0xFFB6C1)
