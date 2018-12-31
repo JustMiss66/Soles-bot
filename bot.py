@@ -93,7 +93,7 @@ async def toes(ctx):
 async def cfeet():
     colour = '0x' + '008000'
     async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/cumming_on_feet_gif/random") as r:
+        async with session.get("https://api.reddit.com/r/cums_on_feet/random") as r:
             data = await r.json()
             embed = discord.Embed(title='Dont tell me you dont like it.', description='from reddit', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
@@ -105,7 +105,7 @@ async def cfeet():
 async def anime_feet(ctx):
     colour = '0x' + '008000'
     async with aiohttp.ClientSession() as session:
-        async with session.get("https://api.reddit.com/r/anime_feet/random") as r:
+        async with session.get("https://api.reddit.com/r/hentai_feet/random") as r:
             data = await r.json()
             embed = discord.Embed(title='I like Anime!', description='from reddit', color=discord.Color(int(colour, base=16)))
             embed.set_image(url=data[0]["data"]["children"][0]["data"]["url"])
