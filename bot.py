@@ -50,6 +50,9 @@ async def help():
     embed.add_field(name = "toes", value = "Shows some toes ;)",inline=False)
     embed.add_field(name = "cfeet", value = "Shows cum on feet pic/gif! (Preparing)",inline=False)
     embed.add_field(name = "anime_feet", value = "Shows Anime feet :smirk:",inline=False)
+    embed.add_field(name = "slap", value = "Slaps a user. Usage: ``]slap @user``",inline=False)
+    embed.add_field(name = "hug", vlaue = "Hugs a user! Usage: ``]hug @user``",inline=False)
+    embed.add_field(namd = "kiss", value = "Kiss a perso. :) Usage: ``]kiss @user``",inline=False)
     await client.say(embed=embed)
                      
 
@@ -72,7 +75,7 @@ async def feet(ctx):
 @client.command()
 async def update():
     embed = discord.Embed(title = "New Update!", color = 0xFFB6C1)
-    embed.add_field(name = "Added:", value = "**]anime_feet!**", inline=True)
+    embed.add_field(name = "Added:", value = "Some fun commands: __]slap @user__ and __]hug @user__ and ]kiss @user__ ! I hope you will enjoy!", inline=True)
     embed.add_field(name = "Removed:", value = "**Non**",inline=True)
     embed.set_footer(text="Bot made by: Nela | v1.3")
     await client.say(embed=embed)
