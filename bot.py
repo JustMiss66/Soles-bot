@@ -214,7 +214,7 @@ async def slap(ctx, userName: discord.User, *, message:str):
         "https://cdn.discordapp.com/attachments/526206250363519016/529497927924580373/Witch-slap-umineko-no-naku-koro-ni-32769184-300-170.gif",
         "https://cdn.discordapp.com/attachments/526206250363519016/529496839637041184/giphy.gif"]))
     await client.send_message("{0} {1}".format(ctx.message.author.mention, userName), ctx.message.channel, embed=embed)
-if not user:
+if user is None:
     await client.send_message(message.channel, "You cant slap air you silly :joy:")
                               
 
