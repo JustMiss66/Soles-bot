@@ -206,6 +206,15 @@ async def on_member_remove(user: discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await client.send_message(channel, embed=embed)
     
+@client.command(pass_context=True)
+async def slap(ctx):
+    slap = discord.Embed(title = "{1} slapped {2}".format(ctx.message.author, ctx.message.content))
+    slap.set_image(urle = random.choice([
+        "https://cdn.discordapp.com/attachments/526206250363519016/529497927924580373/Witch-slap-umineko-no-naku-koro-ni-32769184-300-170.gif",
+        "https://cdn.discordapp.com/attachments/526206250363519016/529496839637041184/giphy.gif"])
+    await client.say(embed=slap, "{0} slapped {1}".format(ctx.message.author.mention, ctx.message.content))
+
+                                                          
 @client.command(pass_context = True)
 @commands.has_permissions(manage_roles=True)
 async def rolecolor(ctx, role:discord.Role=None, value:str=None):
