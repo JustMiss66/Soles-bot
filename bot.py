@@ -212,7 +212,7 @@ async def slap(ctx):
     slap.set_image(urle = random.choice([
         "https://cdn.discordapp.com/attachments/526206250363519016/529497927924580373/Witch-slap-umineko-no-naku-koro-ni-32769184-300-170.gif",
         "https://cdn.discordapp.com/attachments/526206250363519016/529496839637041184/giphy.gif"])
-    await client.say(embed=slap, "{0} slapped {1}".format(ctx.message.author.mention, ctx.message.content))
+    await client.say(embed=slap, "{0} slapped {1}".format(ctx.message.author.mention, userName))
 
                                                           
 @client.command(pass_context = True)
