@@ -209,7 +209,7 @@ async def on_member_remove(user: discord.Member):
 @client.command(pass_context=True)
 async def slap(ctx, userName: discord.User, *, message:str):
     embed = discord.Embed(title = "Wow", color = 0x000000)
-    embed.add_field(name = "{0} slapped".format(ctx.message.author.mention), value = "{0}".format(userName), inline=False)
+    embed.add_field(name = "{0} slapped".format(ctx.message.author.display_name), value = "@{0}".format(userName), inline=False)
     embed.set_image(url = random.choice([
         "https://cdn.discordapp.com/attachments/526206250363519016/529497927924580373/Witch-slap-umineko-no-naku-koro-ni-32769184-300-170.gif",
         "https://cdn.discordapp.com/attachments/526206250363519016/529496839637041184/giphy.gif"]))
