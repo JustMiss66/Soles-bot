@@ -222,7 +222,7 @@ async def hug(ctx, userName: discord.User):
     embed.set_image(url = random.choice([
         "https://cdn.discordapp.com/attachments/526206250363519016/529497926557499403/r9aU2xv.gif",
         "https://cdn.discordapp.com/attachments/526206250363519016/529497926024560680/tenor.gif"]))
-    await client.send_message(ctx.message.channel, "{0} Got hug from {1}!".format(userName, ctx.message.author.display_name))
+    await client.send_message(ctx.message.channel, "{0} Got hug from {1}!".format(userName, ctx.message.author.display_name), embed=embed)
        
 @client.command(pass_context=True)
 async def kiss(ctx, userName: discord.User):
@@ -232,7 +232,7 @@ async def kiss(ctx, userName: discord.User):
         "https://cdn.discordapp.com/attachments/526206250363519016/529497927417200650/original.gif",
         "https://cdn.discordapp.com/attachments/526206250363519016/529497926557499402/3ec77ac0e01df5f57623d8ce140a6de80720d598_00.gif",
         "https://cdn.discordapp.com/attachments/526206250363519016/529497925152276513/eKcWCgS.gif"]))
-    await client.send_message(ctx.message.author, "{0} You got kiss from {1} <3!".format(userName, ctx.message.author.display_name))
+    await client.send_message(ctx.message.author, "{0} You got kiss from {1} <3!".format(userName, ctx.message.author.display_name), embed=embed)
     
 @client.command(pass_context = True)
 @commands.has_permissions(manage_roles=True)
