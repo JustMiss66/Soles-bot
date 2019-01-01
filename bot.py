@@ -215,8 +215,25 @@ async def slap(ctx, userName: discord.User):
         "https://cdn.discordapp.com/attachments/526206250363519016/529496839637041184/giphy.gif"]))
     await client.send_message(ctx.message.channel, "{0} slapped {1}".format(ctx.message.author.mention, userName), embed=embed)
                                   
-
-                                                          
+@client.command(pass_context=True)
+async def hug(ctx, userName: discord.User):
+    embed = discord.Embed(title = "Awww", color = 0x000000)
+    embed.add_field(name = "{0} You got hug from".format(userName), value = "{0}".format(ctx.message.author.display_name), inline=False)
+    embed.set_image(url = random.choice([
+        "https://cdn.discordapp.com/attachments/526206250363519016/529497926557499403/r9aU2xv.gif",
+        "https://cdn.discordapp.com/attachments/526206250363519016/529497926024560680/tenor.gif"]))
+    await client.send_message(ctx.message.channel, "{0} Got hug from {1}!".format(userName, ctx.message.author.display_name))
+       
+@client.command(pass_context=True)
+async def kiss(ctx, userName: discord.User):
+    embed = discord.Embed(title = "Awww", color = 0x000000)
+    embed.add_field(name = "{0} You got kiss from".format(userName), value = "{0}".format(ctx.message.author.display_name), inline=False)
+    embed.set_image(url = random.choice([
+        "https://cdn.discordapp.com/attachments/526206250363519016/529497927417200650/original.gif",
+        "https://cdn.discordapp.com/attachments/526206250363519016/529497926557499402/3ec77ac0e01df5f57623d8ce140a6de80720d598_00.gif",
+        "https://cdn.discordapp.com/attachments/526206250363519016/529497925152276513/eKcWCgS.gif"]))
+    await client.send_message(ctx.message.author, "{0} You got kiss from {1} <3!".format(userName, ctx.message.author.display_name))
+    
 @client.command(pass_context = True)
 @commands.has_permissions(manage_roles=True)
 async def rolecolor(ctx, role:discord.Role=None, value:str=None):
