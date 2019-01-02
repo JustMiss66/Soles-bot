@@ -109,7 +109,7 @@ async def anime_feet(ctx):
     colour = '0x' + '008000'
     async with aiohttp.ClientSession() as session:
         
-        async with session.get("https://api.reddit.com/r/neko_feet/random") as r:
+        async with session.get("https://api.google.com/r/anime_feet/random") as r:
             
             data = await r.json()
             embed = discord.Embed(title='I like Anime!', description='from reddit', color=discord.Color(int(colour, base=16)))
