@@ -161,6 +161,7 @@ async def anime_feet(ctx):
             embed.timestamp = datetime.datetime.utcnow()
             await client.say(embed=embed)
  
+
 #Logs are down ↓ #          
 
 @client.event
