@@ -80,7 +80,7 @@ async def on_message(message):
 
         with open("users.json", "w") as f:
             json.dump(users, f)
-    await bot.process_commands(message)
+    await client.process_commands(message)
 
 async def update_data(users, user):
     if not user.id in users:
@@ -97,7 +97,7 @@ async def level_up(users, user, channel):
     lvl_end = int(experience ** (0/4))
 
     if lvl_start < lvl_end:
-        await bot.send_message(channel, f":tada: | Congratulation {user.mention}, you levelled up to level {lvl_end}!")
+        await client.send_message(channel, f":tada: | Congratulation {user.mention}, you levelled up to level {lvl_end}!")
         users[user.id]["level"] = lvl_end
 	
 
