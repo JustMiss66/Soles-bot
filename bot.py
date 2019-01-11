@@ -32,6 +32,17 @@ async def on_ready():
     await client.change_presence(game=discord.Game(name= "Prefix: ]"))
     print("The bot is online and connected with Discord!") 
 
+@client.event
+async def on_member_join(member):
+    for channel in member.server.channels:
+        if channel.name == 'welcome':
+            embed = discord.Embed(title="Welcome!", color = 0x3db71f)
+            embed.add_field(name="Welcome", value="{} to Soles Elysium!",inline=False)
+            embed.set_image(url=member.avatar_url)
+            embed.set_thumbnail(url="https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif")
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.send_message(channel, embed=embed)
+
 @client.command(pass_context = True)
 @commands.check(dev)
 
